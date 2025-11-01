@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-# A script that generate ssh keys pair
+# A script that generates an SSH key pair without passphrase
 
-ssh-keygen -t rsa -b 4096 -p betty -f school
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/school -N ""
+
