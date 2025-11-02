@@ -33,4 +33,3 @@ Host *
     SendEnv LANG LC_*
     HashKnownHosts yes
     GSSAPIAuthentication yes
-                                                                                                                                       48,20         Bot
