@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Sever-01 login
+
+eval $("ssh-agent")
+ssh-add ~/.ssh/my_web-key
+
+ssh ubuntu@100.26.206.13
