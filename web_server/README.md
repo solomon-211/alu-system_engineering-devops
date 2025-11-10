@@ -7,7 +7,7 @@
 ### File: 0-transfer_file
 A Bash script that transfers a file from the client to the server using scp.
 
-## Requirements:
+### Requirements:
 - Accepts 4 parameters: PATH_TO_FILE, IP, USERNAME, PATH_TO_SSH_KEY
 - Transfers the file to the user's home directory
 - Disables strict host key checking
@@ -20,7 +20,7 @@ A Bash script that transfers a file from the client to the server using scp.
 ### File: 1-install_nginx_web_server
 Bash script that installs and configures Nginx on Ubuntu.
 
-## Requirements:
+### Requirements:
 - Installs Nginx
 - Nginx listens on port 80
 - Returns a page containing "Holberton School" when queried at the root
@@ -34,13 +34,13 @@ Bash script that installs and configures Nginx on Ubuntu.
 ### Testing based on the project assignment:
 curl localhost
 
-# Should return: Holberton School for the win!
+### Should return: Holberton School for the win!
 
 2. Set up a domain name
 ### File: 2-setup_a_domain_name
 Contains your domain name (root domain only, no subdomain).
 
-## Requirements:
+### Requirements:
 Configure the DNS A record to point to the web-01 IP
 Domain obtained through the GitHub Student Pack+.TECH Domains
 
@@ -48,24 +48,24 @@ Domain obtained through the GitHub Student Pack+.TECH Domains
 ### File: 3-redirection
 Bash script that configures Nginx to redirect /redirect_me to another page.
 
-## Requirements:
+### Requirements:
 Must be a 301 Moved Permanently redirect
 Configures a new Ubuntu machine automatically
 
 ### Testing:
 curl -sI your_server_ip/redirect_me/
 
-# Should return: HTTP/1.1 301 Moved Permanently
+### Should return: HTTP/1.1 301 Moved Permanently
 
 4. Not found page 404
 ### File: 4-not_found_page_404
 Bash script that configures Nginx with a custom 404 page.
 
-## Requirements:
+### Requirements:
 Returns HTTP 404 error code
 Page contains the string "Ceci n'est pas une page"
 
-## Testing:
+### Testing:
 curl your_server_ip/nonexistent_page
 
 # Should return: Ceci n'est pas une page
