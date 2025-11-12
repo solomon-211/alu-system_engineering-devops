@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Configures Nginx with a custom HTTP header
+
+apt-get update -y
+apt-get install nginx -y
+
+# Create the index page
+echo "Holberton School for the win!" > /var/www/html/index.html
+
+# Get the hostname
+HOSTNAME=$(hostname)
+
+# Backup the original config
+cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup
+
+# Create nginx configuration with custom header
+cat > /etc/nginx/sites-available/default << 'EOF'
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	add_header X-Served-By $HOSTNAME;
+
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+
+	error_page 404 /404.html;
+	location = /404.html {
+		internal;
+	}
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
+EOF
+
+# Replace $HOSTNAME with actual hostname value
+sed -i "s/\$HOSTNAME/$HOSTNAME/g" /etc/nginx/sites-available/default
+
+# Test nginx configuration
+nginx -t
+
+# Restart nginx
+service nginx restart
