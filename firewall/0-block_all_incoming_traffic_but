@@ -1,0 +1,12 @@
+# Set default policy to block all incoming traffic
+sudo ufw default deny incoming
+# Set default policy to allow all outgoing traffic
+sudo ufw default allow outgoing
+# Allow SSH on port 22 (CRITICAL: prevents lockout)
+sudo ufw allow 22/tcp
+# Allow HTTPS on port 443
+sudo ufw allow 443/tcp
+# Allow HTTP on port 80
+sudo ufw allow 80/tcp
+# Enable UFW firewall and activate all rules
+sudo ufw enable
